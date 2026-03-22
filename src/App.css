@@ -1,0 +1,71 @@
+/* --- src/App.css --- */
+
+/* Main Layout Wrapper */
+.dashboard-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Left & Right Panel Positioning */
+.left-panel {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+}
+
+.right-panel {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+
+/* Events Panel Internals */
+.events-paper {
+  width: 100%;
+  max-width: 450px;
+  height: 550px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list-wrapper {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-paper {
+  padding: 16px;
+  border-radius: 16px;
+}
+
+/* Dialog Form Spacing */
+.dialog-form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 8px !important;
+}
