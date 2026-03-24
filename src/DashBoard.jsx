@@ -19,9 +19,7 @@ import {
 
 // --- 1. HELPER FUNCTIONS ---
 const getLogicalDateStr = () => {
-    const d = new Date();
-    d.setHours(d.getHours() - 6);
-    return d.toISOString().split('T')[0];
+    return dayjs().subtract(6, 'hour').format('YYYY-MM-DD');
 };
 
 const DAYS_OF_WEEK = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -140,7 +138,7 @@ function AddEvents({ events, setEvents, selectedDate }) {
     return (
         <Paper elevation={3} className="events-paper">
             <Typography variant="h5" fontWeight="bold" gutterBottom>
-                {isEditable ? "Today's Tasks" : `Tasks for ${selectedDate.format('MMM D, YYYY')}`}
+                {isEditable ? "Today's Tasks" : `Tasks for ${selectedDate.format('DD/MM/YYYY')}`}
             </Typography>
             <Typography variant="caption" color={isEditable ? "text.secondary" : "warning.main"} gutterBottom>
                 {isEditable ? "Editable until 6:00 AM tomorrow" : "Read-only history view"}
