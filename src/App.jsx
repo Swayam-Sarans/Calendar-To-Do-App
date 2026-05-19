@@ -1,13 +1,15 @@
-import React from 'react';
-import Dashboard from './DashBoard.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Dashboard from "./components/DashBoard.jsx";
+
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 function App() {
   return (
-    <div>
+    <AuthProvider>
       <Dashboard />
-    </div>
+    </AuthProvider>
   );
 }
 
 export default App;
-

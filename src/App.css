@@ -1,27 +1,73 @@
 /* --- src/App.css --- */
 
 /* Main Layout Wrapper */
-.dashboard-container {
+/* .dashboard-container {
   height: 100vh;
   width: 100vw;
   position: relative;
   overflow: hidden;
-}
+} */
 
 /* Left & Right Panel Positioning */
-.left-panel {
+/* .left-panel {
   position: absolute;
   top: 50%;
   left: 25%;
   transform: translate(-50%, -50%);
   width: 450px;
-}
+} */
 
-.right-panel {
+/* .right-panel {
   position: absolute;
   top: 50%;
   left: 75%;
   transform: translate(-50%, -50%);
+} */
+
+/* Main Layout Wrapper */
+.dashboard-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(200px, 20vw, 400px);
+  padding: 24px;
+  box-sizing: border-box;
+
+  flex-wrap: wrap;
+}
+
+/* Left & Right Panel Positioning */
+.left-panel {
+  width: 450px;
+  order: 1;
+}
+
+.right-panel {
+  width: fit-content;
+  order: 2;
+}
+
+/* Responsive Layout */
+@media (max-width: 1070px) {
+  .dashboard-container {
+    gap: 24px;
+    padding-top: 80px;
+    padding-bottom: 40px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .events-paper {
+    width: 95%;
+    max-width: 450px;
+  }
 }
 
 /* Events Panel Internals */
@@ -54,7 +100,7 @@
 .task-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  flex-shrink: 0;
 }
 
 .calendar-paper {
@@ -68,4 +114,35 @@
   flex-direction: column;
   gap: 16px;
   padding-top: 8px !important;
+}
+
+/* Modern Black Scrollbar */
+
+.task-list-wrapper {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Width */
+.task-list-wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+.task-list-wrapper::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+  border-radius: 10px;
+}
+
+/* Handle */
+.task-list-wrapper::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* Hover */
+.task-list-wrapper::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
 }
